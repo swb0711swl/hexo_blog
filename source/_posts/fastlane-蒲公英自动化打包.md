@@ -254,6 +254,54 @@ y
 ```
 
 
-是否允许fastlane管理app的数据信息，输入y
+是否允许fastlane管理app的数据信息，输入y，我分别在两台电脑上走到这个过程遇到了两种不同的情况：
 
+◆ 第一次直接成功了，但是在项目文件目录下没有生成`Gemfile.lock`文件，其他都有，然后我就斗胆执行了命令`$ bundle update`，执行成功后就有了`Gemfile.lock`这个文件。
+
+◆ 第二次卡在了`$ bundle update`这一行，这个不是我手动输入的命令，而是上面输入y之后输出的，然后我又斗胆终止了，按`ctrl + c`还终止不了，重新打开一个窗口，cd到项目目录，执行命令`$ bundle update`，很快的就成功了。
+
+以上是我遇到的两种情况，到此为止，`fastlane init`就成功了，此时你的项目目录下会出现`fastlane文件夹`、`Gemfiel`、`Gemfile.lock`这三项。
+
+## 8、插件
+
+
+☞ 安装蒲公英pgyer插件 ☜，当然有很多插件可以选择，本篇以蒲公英为例，执行命令：
+
+```
+$ bundle exec fastlane add_plugin pgyer
+```
+
+☞ 安装版本控制versioning插件 ☜，执行命令：
+
+```
+$ bundle exec fastlane add_plugin versioning
+```
+
+还有很多插件，可以参考[fastlane官方文档可以找到的插件](https://docs.fastlane.tools/plugins/available-plugins/)
+
+## 9、打包
+
+在Fastfile中增加上传到蒲公英的lane
+
+```
+lane :beta do
+  	build_app(export_method: "ad-hoc")
+  	pgyer(api_key: "******", user_key: "******")
+  end
+```
+
+其中api_key和user_key的获取方法：登录你的蒲公英账号（提前先上传一个版本），在应用概述里面找到这两个值。
+
+执行命令：
+
+```
+$ fastlane beta
+```
+
+成功后，如果你的蒲公英绑定了微信或手机，就会收到相应的信息通知。
+
+
+---
+
+*到此结束，一把辛酸泪，好记性不如烂笔头。*
 
