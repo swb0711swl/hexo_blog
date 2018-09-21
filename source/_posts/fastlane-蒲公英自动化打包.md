@@ -301,6 +301,23 @@ $ fastlane beta
 成功后，如果你的蒲公英绑定了微信或手机，就会收到相应的信息通知。
 
 
+## 10、后续问题
+
+如果pod不能用了，cd到项目目录，执行下列命令：
+
+```
+$ mkdir -p $HOME/Software/ruby
+
+$ export GEM_HOME=$HOME/Software/ruby
+
+$ gem install cocoapods
+
+$ export PATH=$PATH:$HOME/Software/ruby/bin
+
+$ pod --version
+
+```
+
 ---
 
 *到此结束，一把辛酸泪，好记性不如烂笔头。*
