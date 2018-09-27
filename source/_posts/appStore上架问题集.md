@@ -73,6 +73,32 @@ NOTE: Please be sure to make any metadata changes to all app localizations by se
 问题解决：
 iPhone X截屏上传到5.8英寸的预览图中，iPhone Plus截屏上传到5.5英寸的预览图中，不能把iPhone X截屏处理成5.5英寸的。
 
+> Guideline 2.3.6 - Performance - Accurate Metadata
+
+```
+The rating you have selected, 4+, is inconsistent with the content of your app. Since your app includes contests, sweepstakes, real money gambling, or real money betting, you must select "Yes" for Gambling and Contests in App Store Connect.
+
+Next Steps
+
+To resolve this issue, please update your Rating selections in App Store Connect.
+
+- Log in to App Store Connect
+- Click on "My Apps"
+- Select your app
+- Scroll down to select a Rating on the App Details page
+- Click the Edit button next to "Rating"
+- Select "Yes" for Gambling and Contests
+- Click "Done"
+- Once you've completed all changes, click the "Save" button at the top of the App Version Information page.
+
+Note: Apps must be rated accordingly for the highest level of content that the user is able to access in the app.
+```
+
+问题原因：项目中接入了抽奖
+
+问题解决：在app分级中，“赌博与竞赛”选项选择是，此时年龄会自动设为17+岁。
+
+
 > Guideline 2.4.1 - Performance - Hardware Compatibility
 
 ```
@@ -154,7 +180,27 @@ Privacy - Motion Usage Description
 在 iTunes Connect 我的App -> 待审核或可供销售 -> App描述中加上一个提示语`“appName“已接入HealthKit，可同步训练数据到”个人“步数，授权 Apple Health 可一键同步运动数据。`
 
 
-还有一次审核被拒绝，具体原因没有保存下来，因为应用里新增了抽奖功能，需要在app分级中选项“赌博和竞赛”选择时，此时苹果会自动设置为17+岁，还有抽奖中的奖品不能是苹果相关产品，还要有明确的“活动规则”，在活动规则和抽奖页面中声明本活动与苹果官方无关；奖励由本公司提供，与苹果官方无关。
+> Guideline 5.3.2 - Legal - Gaming, Gambling, and Lotteries
+
+```
+Your app includes a contest or sweepstakes but it does not:
+
+- Include official rules for the sweepstake within the app, which is required.
+- Indicate that Apple is not involved in any way with the contest or sweepstakes.
+- Enforce an app age rating of 17+.
+
+Next Steps
+
+It is necessary to:
+
+- Include official rules of the contest or sweepstakes in the app
+- Include an explicit statement in the contest or sweepstakes rules specifying that Apple is not a sponsor.
+- Enforce an age rating of 17+.
+```
+
+问题原因：App中有抽奖功能
+
+问题解决：在抽奖规则和抽奖页面添加`*奖品与活动和设备生产商Apple Inc.公司无关`。然后在用户协议中添加`通过本软件参加的任何商业活动或者奖励活动，由本公司提供，均与Apple Inc.无关。`
 
 > *持续更新...*
 
